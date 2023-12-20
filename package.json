@@ -1,0 +1,45 @@
+{
+  "name": "Maps",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "i": "^0.3.7",
+    "npm": "^10.2.5",
+    "react": "18.0.0",
+    "react-native": "0.69.0",
+    "react-native-geolocation-service": "^5.3.1",
+    "react-native-maps": "^1.8.4",
+    "react-native-svg": "^14.1.0",
+    "react-native-vector-icons": "^10.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@tsconfig/react-native": "^3.0.2",
+    "@types/jest": "^29.5.11",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-test-renderer": "^18.0.7",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.70.3",
+    "react-test-renderer": "18.0.0",
+    "typescript": "^5.3.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.69.0"
+  }
+}

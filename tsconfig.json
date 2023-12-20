@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["dom", "es2015"],
+      "jsx": "react-native",     // This is important for React JSX
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "paths": {
+        "react": [ "./node_modules/@types/react" ]
+      },
+      "jsxImportSource": "react", // For React 17+
+      "types": ["react", "react-dom"] // Include necessary types
+    },
+    "exclude": ["node_modules"]
+  }
