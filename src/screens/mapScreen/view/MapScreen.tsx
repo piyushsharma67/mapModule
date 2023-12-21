@@ -17,7 +17,6 @@ function MapScreen() {
     } = useMapScreenHook()
 
 
-
     return (
         <View style={style.container}>
             <Loader loading={loading} />
@@ -26,12 +25,13 @@ function MapScreen() {
                 initialRegion={initialLocation}
                 ref={setMapView}
             >
+                <Marker coordinate={polylineCoordinates[0]} />
                 <Polyline coordinates={polylineCoordinates} strokeWidth={3} strokeColor='red' />
 
                 {arrowPosition.map((index, arrowIndex) => {
                     if (index < polylineCoordinates.length - 1) {
                         const bearing = calculateBearing(polylineCoordinates[index], polylineCoordinates[index + 1]);
-                        console.log("bearing is", bearing)
+
                         return (
                             <Marker
                                 key={index}
@@ -54,6 +54,8 @@ function MapScreen() {
                     }
                     return null;
                 })}
+                <Marker coordinate={polylineCoordinates[polylineCoordinates.length - 1]}
+                />
             </MapView>
         </View>
     )
