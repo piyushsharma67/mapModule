@@ -16,6 +16,8 @@ function MapScreen() {
         calculateBearing
     } = useMapScreenHook()
 
+
+
     return (
         <View style={style.container}>
             <Loader loading={loading} />
@@ -29,13 +31,13 @@ function MapScreen() {
                 {arrowPosition.map((index, arrowIndex) => {
                     if (index < polylineCoordinates.length - 1) {
                         const bearing = calculateBearing(polylineCoordinates[index], polylineCoordinates[index + 1]);
-
+                        console.log("bearing is", bearing)
                         return (
                             <Marker
                                 key={index}
                                 coordinate={polylineCoordinates[index]}
                                 anchor={{ x: 0.5, y: 0.5 }}
-                                rotation={bearing}
+                                rotation={0}
                             >
                                 <Svg
                                     width={20}

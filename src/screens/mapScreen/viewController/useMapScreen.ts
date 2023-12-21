@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { showToastWithGravity } from "../../../utils/showToastMessage"
 
-const apiKey = '******** your API key here *******';
+const apiKey = '******** Your API Key ********';
 const origin = '28.6692,77.4538'; // Replace with your origin coordinates default ghaziabad
 const destination = '28.7041,77.1025'; // Replace with your destination coordinates default delhi
 
@@ -44,7 +44,7 @@ function useMapScreenHook() {
 
             points.unshift({ latitude: initialLocation.latitude, longitude: initialLocation.longitude })
 
-            const numberOfArrows = 4;
+            const numberOfArrows = 10;
             const totalPoints = points.length;
             let positions = []
             for (let i = 0; i < numberOfArrows; i++) {
@@ -113,12 +113,25 @@ function useMapScreenHook() {
         const lat2 = coord2.latitude;
         const lon2 = coord2.longitude;
 
-        const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
-        const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
+        // const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
+        // const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
 
-        let bearing = Math.atan2(y, x);
-        bearing = (bearing * 180) / Math.PI;
-        return bearing;
+        // let bearing = Math.atan2(y, x);
+        // bearing = (bearing * 180) / Math.PI;
+        // return bearing;
+
+        let dLon = (lon2 - lon1);
+
+        let y = Math.sin(dLon) * Math.cos(lat2);
+        let x = (Math.cos(lat1) * Math.sin(lat2)) - (Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon))
+
+        let brng = Math.atan2(y, x);
+
+        brng = brng * (180 / Math.PI)
+        brng = (brng + 360) % 360;
+        brng = (360 - brng); // count degrees counter-clockwise - remove to make clockwise
+        brng = brng + 180
+        return brng;
     };
 
 
